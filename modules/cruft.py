@@ -11,7 +11,7 @@ from datetime import datetime
 def chins(phenny, input):
     process = subprocess.Popen(
             #'/opt/vdna/trunk/scripts/cassandra/status',
-            '/home/saul/bin/cassandraStatus.sh',
+            'scripts/cassandraStatus.sh',
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT
             )
