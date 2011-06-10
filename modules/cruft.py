@@ -5,7 +5,8 @@ cruft.py - Phenny Cruft Module
 http://inamidst.com/phenny/
 """
 #import os
-import subprocess, random 
+import subprocess, random
+from datetime import datetime
 
 def chins(phenny, input):
     process = subprocess.Popen(
@@ -27,11 +28,20 @@ chins.priority = 'medium'
 
 def sorryOksana(phenny, input):
     phenny.say("Sorry Oksana.")
-sorryOksana.rule = r'.*(?i)(fuck|shit|balls|bollocks|bastard|bitch|bloody|cunt|ballbag|crap).*'
+sorryOksana.rule = r'\b(?i)(fuck|shit|balls|bollocks|bastard|bitch|bloody|cunt|ballbag|crap)\b'
 sorryOksana.priority = 'medium'
 
 def cruftDetected(phenny, input):
-    randmsg = random.choice(["You called?", "Cruft, you say?"])
-    phenny.say(randmsg)
-cruftDetected.rule = r'.*(?i)(cruft).*'
+    if (random.random() > 0.5) :
+        randmsg = random.choice(["You called?", "Warning: cruft detected in this channel."])
+        phenny.say(randmsg)
+cruftDetected.rule = r'\b(?i)(cruft)(?!Bot)\b'
 cruftDetected.priority = 'medium'
+
+def beerOClock(phenny, input):
+    hour   = str(datetime.now().hour)
+    minute = str(datetime.now().minute)
+    if (hour == '17' and (minute >= '30' or minute <= '35')) :
+        phenny.say("Beer O'Clock!")
+beerOClock.rule = r'.*'
+beerOClock.priority = 'low'
