@@ -38,10 +38,10 @@ def cruftDetected(phenny, input):
 cruftDetected.rule = r'\b(?i)(cruft)(?!Bot)\b'
 cruftDetected.priority = 'medium'
 
-def beerOClock(phenny, input):
-    hour   = str(datetime.now().hour)
-    minute = str(datetime.now().minute)
-    if (hour == '17' and (minute >= '30' or minute <= '35')) :
-        phenny.say("Beer O'Clock!")
-beerOClock.rule = r'.*'
-beerOClock.priority = 'low'
+#def beerOClock(phenny, input):
+#    hour   = str(datetime.now().hour)
+#    minute = str(datetime.now().minute)
+#    if (hour == '17' and (minute >= '30' or minute <= '35')) :
+#        phenny.say("Beer O'Clock!")
+#beerOClock.rule = r'.*'
+#beerOClock.priority = 'low'
